@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="AquaTech · Infinity-Grid — Monitoreo IoT de calidad del agua">
+<title>AquaTech · Infinity-Grid</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Share+Tech+Mono&display=swap"     <link rel="stylesheet" href="aquatech.css">
+
+
+
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-chk" aria-hidden="true">
+
+<div class="app">
+
+  <label for="nav-toggle" class="nav-overlay" aria-hidden="true"></label>
+
+  <!-- ── SIDEBAR ────────────────────────────────────────── -->
+  <aside class="sidebar" aria-label="Navegación principal">
+
+    <div class="sb-brand">
+      <div class="sb-logo-row">
+        <div class="sb-icon" aria-hidden="true"></div>
+        <p class="sb-name">Infinity-Grid</p>
+      </div>
+      <p class="sb-sub">AquaTech · IoT v2.4</p>
+    </div>
+
+    <nav class="sb-nav" aria-label="Secciones">
+      <p class="sb-section-label">// Principal</p>
+      <a href="#dashboard" class="sb-link link-dash icon-home">Dashboard</a>
+      <a href="#metricas"  class="sb-link link-met  icon-chart">Métricas IoT</a>
+      <a href="#sensores"  class="sb-link link-sen  icon-sensor">Sensores</a>
+
+      <p class="sb-section-label">// Sistema</p>
+      <a href="#alertas"  class="sb-link link-alert icon-bell">
+        Alertas
+        <span class="sb-badge" aria-label="2 alertas activas">02</span>
+      </a>
+      <a href="#reportes" class="sb-link link-rep icon-doc">Reportes</a>
+    </nav>
+
+    <div class="sb-footer">
+      <span class="lamp lamp--on" aria-hidden="true"></span>
+      12 SENSORES ACTIVOS
+    </div>
+  </aside>
+
+  <!-- ── MAIN ──────────────────────────────────────────── -->
+  <div class="main-wrapper">
+
+    <header class="topbar" role="banner">
+      <label for="nav-toggle" class="menu-btn" aria-label="Abrir / cerrar menú">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </label>
+
+      <nav class="topbar-crumb" aria-label="Ruta de navegación">
+        <span>AQUATECH</span>
+        <span class="crumb-sep" aria-hidden="true">/</span>
+        <span class="crumb-cur">DASHBOARD</span>
+      </nav>
+
+      <div class="topbar-right">
+        <span class="sys-time">2026-05-28 · 09:41:03</span>
+        <div class="live-pill" aria-label="Transmisión en vivo">
+          <span class="live-dot" aria-hidden="true"></span>
+          EN VIVO
+        </div>
+      </div>
+    </header>
+
+    <main class="content" id="main-content">
+
+      <!-- ── HERO ──────────────────────────────────────── -->
+      <section id="dashboard" aria-labelledby="hero-title">
+        <div class="hero">
+          <p class="hero-kicker">Centro de Control · Estanques A – D · Zona Sur</p>
+          <h1 id="hero-title" class="hero-title">
+            Monitoreo en<br><em>tiempo real</em>
+          </h1>
+          <p class="hero-desc">
+            Calidad del agua · pH · O₂ · Temperatura<br>
+            Visualización fluida de móvil a 4K sin interrupciones.
+          </p>
+          <div class="hero-stats">
+            <div class="hero-stat">
+              <span class="stat-val">99.8%</span>
+              <span class="stat-label">Uptime</span>
+            </div>
+            <div class="hero-stat">
+              <span class="stat-val">12</span>
+              <span class="stat-label">Sensores</span>
+            </div>
+            <div class="hero-stat hero-stat--warn">
+              <span class="stat-val">02</span>
+              <span class="stat-label">Alertas</span>
+            </div>
+            <div class="hero-stat">
+              <span class="stat-val">4</span>
+              <span class="stat-label">Estanques</span>
+            </div>
+            <div class="hero-stat hero-stat--red">
+              <span class="stat-val">01</span>
+              <span class="stat-label">Crítico</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── MAPA DE ESTANQUES ──────────────────────────── -->
+      <section aria-label="Vista de estanques">
+        <div class="section-header">
+          <h2 class="section-title">// Mapa de Estanques</h2>
+          <span class="section-meta">ZONA SUR · PLANTA 01</span>
+        </div>
+        <div class="map-grid">
+          <div class="map-cell map-cell--ok">
+            <p class="map-cell-name">Estanque A</p>
+            <p class="map-cell-info">
+              Vol: 8,400 L<br>
+              Biomasa: 320 kg<br>
+              Estado: <span style="color:var(--ph)">Normal</span>
+            </p>
+          </div>
+          <div class="map-cell map-cell--ok">
+            <p class="map-cell-name">Estanque B</p>
+            <p class="map-cell-info">
+              Vol: 8,400 L<br>
+              Biomasa: 295 kg<br>
+              Estado: <span style="color:var(--ph)">Normal</span>
+            </p>
+          </div>
+          <div class="map-cell map-cell--warn">
+            <p class="map-cell-name">Estanque C</p>
+            <p class="map-cell-info">
+              Vol: 6,200 L<br>
+              Biomasa: 210 kg<br>
+              Estado: <span style="color:var(--amber)">Vigilar O₂</span>
+            </p>
+          </div>
+          <div class="map-cell map-cell--ok">
+            <p class="map-cell-name">Estanque D</p>
+            <p class="map-cell-info">
+              Vol: 7,800 L<br>
+              Biomasa: 280 kg<br>
+              Estado: <span style="color:var(--ph)">Normal</span>
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── MÉTRICAS ───────────────────────────────────── -->
+      <section id="metricas" aria-labelledby="metrics-title">
+        <div class="section-header">
+          <h2 id="metrics-title" class="section-title">// Métricas IoT</h2>
+          <span class="section-meta">ACT. HACE 12 s</span>
+        </div>
+
+        <div class="grid-metrics">
+
+          <!-- pH -->
+          <article class="card" style="--c:#6eb818" aria-label="pH del agua: 7.2">
+            <div class="card-top">
+              <span class="card-label">pH del Agua</span>
+              <span class="badge badge--ok">Óptimo</span>
+            </div>
+            <div class="card-value">
+              <span class="val">7.2</span><span class="unit">pH</span>
+            </div>
+            <svg class="sparkline" viewBox="0 0 120 28" preserveAspectRatio="none" aria-hidden="true">
+              <polyline points="0,20 17,17.7 34,15.5 51,16.4 68,14.6 85,15.9 102,15.5 120,15.1"
+                fill="none" stroke="#6eb818" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <div class="card-footer">
+              <span>Rango: 6.8 – 7.6</span>
+              <span class="card-id">SN-A01</span>
+            </div>
+          </article>
+
+          <!-- O2 -->
+          <article class="card" style="--c:#c89818" aria-label="Oxígeno disuelto: 5.4 mg/L">
+            <div class="card-top">
+              <span class="card-label">Oxígeno Disuelto</span>
+              <span class="badge badge--warn">Vigilar</span>
+            </div>
+            <div class="card-value">
+              <span class="val">5.4</span><span class="unit">mg/L</span>
+            </div>
+            <svg class="sparkline" viewBox="0 0 120 28" preserveAspectRatio="none" aria-hidden="true">
+              <polyline points="0,15 17,15.4 34,15.8 51,16.3 68,16.7 85,17.6 102,18 120,18.5"
+                fill="none" stroke="#c89818" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <div class="card-footer">
+              <span>Mín recomendado: 5.0 mg/L</span>
+              <span class="card-id">SN-A02</span>
+            </div>
+          </article>
+
+          <!-- Temperatura -->
+          <article class="card" style="--c:#6eb818" aria-label="Temperatura: 24.8 °C">
+            <div class="card-top">
+              <span class="card-label">Temperatura</span>
+              <span class="badge badge--ok">Estable</span>
+            </div>
+            <div class="card-value">
+              <span class="val">24.8</span><span class="unit">°C</span>
+            </div>
+            <svg class="sparkline" viewBox="0 0 120 28" preserveAspectRatio="none" aria-hidden="true">
+              <polyline points="0,14 17,13.6 34,14 51,13.3 68,13.6 85,14 102,13.6 120,13.6"
+                fill="none" stroke="#6eb818" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <div class="card-footer">
+              <span>Variación ±0.6 °C / 24 h</span>
+              <span class="card-id">SN-B01</span>
+            </div>
+          </article>
+
+          <!-- Turbidez -->
+          <article class="card" style="--c:#6eb818" aria-label="Turbidez: 3.1 NTU">
+            <div class="card-top">
+              <span class="card-label">Turbidez</span>
+              <span class="badge badge--ok">Clara</span>
+            </div>
+            <div class="card-value">
+              <span class="val">3.1</span><span class="unit">NTU</span>
+            </div>
+            <svg class="sparkline" viewBox="0 0 120 28" preserveAspectRatio="none" aria-hidden="true">
+              <polyline points="0,19.5 17,17.4 34,19.2 51,18.1 68,18.8 85,17.1 102,19.5 120,18.5"
+                fill="none" stroke="#6eb818" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <div class="card-footer">
+              <span>Nefelómetro láser</span>
+              <span class="card-id">SN-B02</span>
+            </div>
+          </article>
+
+          <!-- Salinidad -->
+          <article class="card" style="--c:#6eb818" aria-label="Salinidad: 0.42 ppt">
+            <div class="card-top">
+              <span class="card-label">Salinidad</span>
+              <span class="badge badge--ok">Normal</span>
+            </div>
+            <div class="card-value">
+              <span class="val">0.42</span><span class="unit">ppt</span>
+            </div>
+            <svg class="sparkline" viewBox="0 0 120 28" preserveAspectRatio="none" aria-hidden="true">
+              <polyline points="0,17 17,15.8 34,17 51,15.8 68,14.6 85,17 102,15.8 120,15.8"
+                fill="none" stroke="#6eb818" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <div class="card-footer">
+              <span>Calibrado a 25 °C</span>
+              <span class="card-id">SN-C01</span>
+            </div>
+          </article>
+
+          <!-- Flujo -->
+          <article class="card" style="--c:#b83020" aria-label="Flujo de bombeo: 182 L/min">
+            <div class="card-top">
+              <span class="card-label">Flujo de Bombeo</span>
+              <span class="badge badge--danger">Caída</span>
+            </div>
+            <div class="card-value">
+              <span class="val">182</span><span class="unit">L/min</span>
+            </div>
+            <svg class="sparkline" viewBox="0 0 120 28" preserveAspectRatio="none" aria-hidden="true">
+              <polyline points="0,6 17,6.5 34,7 51,8 68,9 85,10.5 102,12.5 120,14.5"
+                fill="none" stroke="#b83020" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <div class="card-footer">
+              <span>Esperado: 200 L/min</span>
+              <span class="card-id">SN-C02</span>
+            </div>
+          </article>
+
+          <!-- Amonio -->
+          <article class="card" style="--c:#6eb818" aria-label="Amonio: 0.08 mg/L">
+            <div class="card-top">
+              <span class="card-label">Amonio (NH₄⁺)</span>
+              <span class="badge badge--ok">Aceptable</span>
+            </div>
+            <div class="card-value">
+              <span class="val">0.08</span><span class="unit">mg/L</span>
+            </div>
+            <svg class="sparkline" viewBox="0 0 120 28" preserveAspectRatio="none" aria-hidden="true">
+              <polyline points="0,18 17,16 34,18 51,17 68,19 85,18 102,17 120,18"
+                fill="none" stroke="#6eb818" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <div class="card-footer">
+              <span>Límite: 0.50 mg/L</span>
+              <span class="card-id">SN-D01</span>
+            </div>
+          </article>
+
+          <!-- Conductividad -->
+          <article class="card" style="--c:#c89818" aria-label="Conductividad: 612 µS/cm">
+            <div class="card-top">
+              <span class="card-label">Conductividad</span>
+              <span class="badge badge--warn">Revisar</span>
+            </div>
+            <div class="card-value">
+              <span class="val">612</span><span class="unit">µS/cm</span>
+            </div>
+            <svg class="sparkline" viewBox="0 0 120 28" preserveAspectRatio="none" aria-hidden="true">
+              <polyline points="0,14 17,14.5 34,15 51,15.8 68,16.5 85,17.2 102,17.8 120,18.5"
+                fill="none" stroke="#c89818" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <div class="card-footer">
+              <span>Rango: 200–800 µS/cm</span>
+              <span class="card-id">SN-D02</span>
+            </div>
+          </article>
+
+          <!-- Potencial Redox -->
+          <article class="card" style="--c:#6eb818" aria-label="ORP: +224 mV">
+            <div class="card-top">
+              <span class="card-label">Potencial Redox (ORP)</span>
+              <span class="badge badge--ok">Normal</span>
+            </div>
+            <div class="card-value">
+              <span class="val">+224</span><span class="unit">mV</span>
+            </div>
+            <svg class="sparkline" viewBox="0 0 120 28" preserveAspectRatio="none" aria-hidden="true">
+              <polyline points="0,15 17,13 34,14 51,12 68,13 85,12 102,13 120,12"
+                fill="none" stroke="#6eb818" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <div class="card-footer">
+              <span>Rango aeróbico: +100 a +300 mV</span>
+              <span class="card-id">SN-A03</span>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+      <!-- ── SENSORES ────────────────────────────────────── -->
+      <section id="sensores" aria-labelledby="sensors-title">
+        <div class="section-header">
+          <h2 id="sensors-title" class="section-title">// Estado de Sensores</h2>
+          <span class="section-meta">4 DISPOSITIVOS · 12 NODOS</span>
+        </div>
+        <div class="sensor-panel">
+
+          <div class="sensor-row">
+            <span class="lamp lamp--on" aria-hidden="true"></span>
+            <div class="sensor-info">
+              <p class="sensor-name">Estanque A</p>
+              <p class="sensor-desc">Sonda multiparamétrica · 3 nodos</p>
+            </div>
+            <span class="sensor-chip sensor-chip--ok">En línea</span>
+            <span class="sensor-id">SN-A01/02/03</span>
+          </div>
+
+          <div class="sensor-row">
+            <span class="lamp lamp--on" aria-hidden="true"></span>
+            <div class="sensor-info">
+              <p class="sensor-name">Estanque B</p>
+              <p class="sensor-desc">Sonda multiparamétrica · 3 nodos</p>
+            </div>
+            <span class="sensor-chip sensor-chip--ok">En línea</span>
+            <span class="sensor-id">SN-B01/02/03</span>
+          </div>
+
+          <div class="sensor-row">
+            <span class="lamp lamp--warn" aria-hidden="true"></span>
+            <div class="sensor-info">
+              <p class="sensor-name">Estanque C</p>
+              <p class="sensor-desc">Alta latencia detectada · paquetes perdidos 3%</p>
+            </div>
+            <span class="sensor-chip sensor-chip--warn">320 ms</span>
+            <span class="sensor-id">SN-C01/02</span>
+          </div>
+
+          <div class="sensor-row">
+            <span class="lamp lamp--on" aria-hidden="true"></span>
+            <div class="sensor-info">
+              <p class="sensor-name">Estanque D</p>
+              <p class="sensor-desc">Sonda multiparamétrica · 2 nodos</p>
+            </div>
+            <span class="sensor-chip sensor-chip--ok">En línea</span>
+            <span class="sensor-id">SN-D01/02</span>
+          </div>
+
+          <div class="sensor-row">
+            <span class="lamp lamp--on" aria-hidden="true"></span>
+            <div class="sensor-info">
+              <p class="sensor-name">Filtro Central</p>
+              <p class="sensor-desc">Caudalímetro ultrasónico · 1 nodo</p>
+            </div>
+            <span class="sensor-chip sensor-chip--ok">En línea</span>
+            <span class="sensor-id">SN-E01</span>
+          </div>
+
+          <div class="sensor-row">
+            <span class="lamp lamp--off" aria-hidden="true"></span>
+            <div class="sensor-info">
+              <p class="sensor-name">Gateway MQTT-02</p>
+              <p class="sensor-desc">Sin respuesta desde 14:32 — revisión pendiente</p>
+            </div>
+            <span class="sensor-chip sensor-chip--err">Sin señal</span>
+            <span class="sensor-id">GW-02</span>
+          </div>
+
+        </div>
+
+        <!-- Tabla de historial de latencias -->
+        <div class="data-table">
+          <table>
+            <thead>
+              <tr>
+                <th>Nodo</th>
+                <th>Latencia</th>
+                <th>Paquetes</th>
+                <th>Último ping</th>
+                <th>Estado</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="td-mono">SN-A01</td>
+                <td class="td-ok">18 ms</td>
+                <td>100%</td>
+                <td>Hace 12 s</td>
+                <td class="td-ok">Online</td>
+              </tr>
+              <tr>
+                <td class="td-mono">SN-B01</td>
+                <td class="td-ok">22 ms</td>
+                <td>100%</td>
+                <td>Hace 12 s</td>
+                <td class="td-ok">Online</td>
+              </tr>
+              <tr>
+                <td class="td-mono">SN-C01</td>
+                <td class="td-warn">320 ms</td>
+                <td>97%</td>
+                <td>Hace 12 s</td>
+                <td class="td-warn">Degradado</td>
+              </tr>
+              <tr>
+                <td class="td-mono">SN-D01</td>
+                <td class="td-ok">25 ms</td>
+                <td>100%</td>
+                <td>Hace 12 s</td>
+                <td class="td-ok">Online</td>
+              </tr>
+              <tr>
+                <td class="td-mono">GW-02</td>
+                <td class="td-err">—</td>
+                <td>0%</td>
+                <td>Hace 48 min</td>
+                <td class="td-err">Offline</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- ── ALERTAS ─────────────────────────────────────── -->
+      <section id="alertas" aria-labelledby="alerts-title">
+        <div class="section-header">
+          <h2 id="alerts-title" class="section-title">// Alertas del Sistema</h2>
+          <span class="section-meta">4 EVENTOS ACTIVOS</span>
+        </div>
+
+        <!-- Resumen numérico -->
+        <div class="alert-summary">
+          <div class="alert-sum-item">
+            <p class="alert-sum-num alert-sum-num--crit">01</p>
+            <p class="alert-sum-label">Críticas</p>
+          </div>
+          <div class="alert-sum-item">
+            <p class="alert-sum-num alert-sum-num--warn">02</p>
+            <p class="alert-sum-label">Advertencias</p>
+          </div>
+          <div class="alert-sum-item">
+            <p class="alert-sum-num alert-sum-num--ok">01</p>
+            <p class="alert-sum-label">Info</p>
+          </div>
+        </div>
+
+        <div class="alert-list">
+
+          <!-- Crítica -->
+          <div class="alert-item alert-item--crit">
+            <div class="alert-icon alert-icon--crit">ERR</div>
+            <div class="alert-body">
+              <p class="alert-title">Gateway MQTT-02 sin conexión</p>
+              <p class="alert-desc">El nodo GW-02 no responde desde las 14:32. Se perdió comunicación con 2 sensores del Estanque C. Verificar alimentación y canal WiFi 2.4 GHz.</p>
+              <div class="alert-meta">
+                <span>HOY · 14:32:08</span>
+                <span class="alert-meta-sep">·</span>
+                <span>Zona Sur · GW-02</span>
+              </div>
+            </div>
+            <span class="alert-ack">ACK</span>
+          </div>
+
+          <!-- Advertencia 1 -->
+          <div class="alert-item alert-item--warn">
+            <div class="alert-icon alert-icon--warn">WARN</div>
+            <div class="alert-body">
+              <p class="alert-title">Flujo de bombeo bajo el umbral</p>
+              <p class="alert-desc">La bomba principal registra 182 L/min, un 9% por debajo del mínimo operativo (200 L/min). Posible obstrucción en filtro de malla o desgaste de impulsor.</p>
+              <div class="alert-meta">
+                <span>HOY · 15:10:44</span>
+                <span class="alert-meta-sep">·</span>
+                <span>Filtro Central · SN-C02</span>
+              </div>
+            </div>
+            <span class="alert-ack">ACK</span>
+          </div>
+
+          <!-- Advertencia 2 -->
+          <div class="alert-item alert-item--warn">
+            <div class="alert-icon alert-icon--warn">WARN</div>
+            <div class="alert-body">
+              <p class="alert-title">Oxígeno disuelto próximo al mínimo</p>
+              <p class="alert-desc">Estanque C muestra tendencia descendente en O₂ (5.4 → 5.1 mg/L en 2 h). Si continúa, se activará aeración de emergencia automáticamente.</p>
+              <div class="alert-meta">
+                <span>HOY · 15:18:22</span>
+                <span class="alert-meta-sep">·</span>
+                <span>Estanque C · SN-A02</span>
+              </div>
+            </div>
+            <span class="alert-ack">ACK</span>
+          </div>
+
+          <!-- Info -->
+          <div class="alert-item alert-item--info">
+            <div class="alert-icon alert-icon--info">INFO</div>
+            <div class="alert-body">
+              <p class="alert-title">Calibración de sonda completada</p>
+              <p class="alert-desc">La sonda SN-B01 completó su ciclo de auto-calibración satisfactoriamente. Próxima calibración programada en 72 horas.</p>
+              <div class="alert-meta">
+                <span>HOY · 13:00:00</span>
+                <span class="alert-meta-sep">·</span>
+                <span>Estanque B · SN-B01</span>
+              </div>
+            </div>
+            <span class="alert-ack">—</span>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ── REPORTES ────────────────────────────────────── -->
+      <section id="reportes" aria-labelledby="reports-title">
+        <div class="section-header">
+          <h2 id="reports-title" class="section-title">// Reportes</h2>
+          <span class="section-meta">GENERACIÓN AUTOMÁTICA</span>
+        </div>
+
+        <!-- Estadísticas de reportes -->
+        <div class="report-stats-row">
+          <div class="rstat">
+            <p class="rstat-val">128</p>
+            <p class="rstat-label">Reportes totales</p>
+          </div>
+          <div class="rstat">
+            <p class="rstat-val">30</p>
+            <p class="rstat-label">Días de historial</p>
+          </div>
+          <div class="rstat">
+            <p class="rstat-val">4.2 MB</p>
+            <p class="rstat-label">Datos exportados</p>
+          </div>
+          <div class="rstat">
+            <p class="rstat-val">99%</p>
+            <p class="rstat-label">Precisión datos</p>
+          </div>
+        </div>
+
+        <div class="report-grid">
+
+          <div class="report-card">
+            <div class="report-icon">PDF</div>
+            <div class="report-body">
+              <p class="report-name">Reporte Diario — 28 May 2026</p>
+              <p class="report-desc">Resumen de métricas, alertas y estado de sensores. 24 h de datos consolidados.</p>
+              <div class="report-progress">
+                <div class="report-bar report-bar--100"></div>
+              </div>
+              <p class="report-meta">Generado · 09:00:01 · 1.2 MB</p>
+            </div>
+            <span class="report-dl">↓ DL</span>
+          </div>
+
+          <div class="report-card">
+            <div class="report-icon">CSV</div>
+            <div class="report-body">
+              <p class="report-name">Exportación IoT — Semana 22</p>
+              <p class="report-desc">Datos crudos de todos los sensores en formato CSV para análisis externo.</p>
+              <div class="report-progress">
+                <div class="report-bar report-bar--100"></div>
+              </div>
+              <p class="report-meta">Generado · Lunes 09:05 · 840 KB</p>
+            </div>
+            <span class="report-dl">↓ DL</span>
+          </div>
+
+          <div class="report-card">
+            <div class="report-icon">PDF</div>
+            <div class="report-body">
+              <p class="report-name">Reporte Mensual — Abril 2026</p>
+              <p class="report-desc">Análisis de tendencias, cumplimiento de parámetros y recomendaciones.</p>
+              <div class="report-progress">
+                <div class="report-bar report-bar--100"></div>
+              </div>
+              <p class="report-meta">Generado · 01 May · 3.8 MB</p>
+            </div>
+            <span class="report-dl">↓ DL</span>
+          </div>
+
+          <div class="report-card">
+            <div class="report-icon">CSV</div>
+            <div class="report-body">
+              <p class="report-name">Exportación Alertas — Mayo 2026</p>
+              <p class="report-desc">Registro completo de eventos y alertas del mes en curso con timestamps.</p>
+              <div class="report-progress">
+                <div class="report-bar report-bar--72"></div>
+              </div>
+              <p class="report-meta">Generando… 72% · Est. 40 s restantes</p>
+            </div>
+            <span class="report-dl">…</span>
+          </div>
+
+          <div class="report-card">
+            <div class="report-icon">JSON</div>
+            <div class="report-body">
+              <p class="report-name">API Snapshot — Tiempo Real</p>
+              <p class="report-desc">Volcado JSON del estado actual de todos los nodos para integración con sistemas externos.</p>
+              <div class="report-progress">
+                <div class="report-bar report-bar--38"></div>
+              </div>
+              <p class="report-meta">Preparando… 38% · Bajo demanda</p>
+            </div>
+            <span class="report-dl">…</span>
+          </div>
+
+          <div class="report-card">
+            <div class="report-icon">XLS</div>
+            <div class="report-body">
+              <p class="report-name">Historial de Calibraciones</p>
+              <p class="report-desc">Registro de todas las calibraciones de sondas con valores de referencia y desvíos.</p>
+              <div class="report-progress">
+                <div class="report-bar report-bar--100"></div>
+              </div>
+              <p class="report-meta">Generado · 25 May · 210 KB</p>
+            </div>
+            <span class="report-dl">↓ DL</span>
+          </div>
+
+        </div>
+
+        <!-- Tabla historial de últimos reportes -->
+        <div class="data-table">
+          <table>
+            <thead>
+              <tr>
+                <th>Fecha</th>
+                <th>Tipo</th>
+                <th>Nombre</th>
+                <th>Tamaño</th>
+                <th>Estado</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>28 May 09:00</td>
+                <td class="td-mono">PDF</td>
+                <td>Reporte diario</td>
+                <td>1.2 MB</td>
+                <td class="td-ok">Listo</td>
+              </tr>
+              <tr>
+                <td>27 May 09:00</td>
+                <td class="td-mono">PDF</td>
+                <td>Reporte diario</td>
+                <td>1.1 MB</td>
+                <td class="td-ok">Listo</td>
+              </tr>
+              <tr>
+                <td>26 May 09:00</td>
+                <td class="td-mono">PDF</td>
+                <td>Reporte diario</td>
+                <td>1.3 MB</td>
+                <td class="td-ok">Listo</td>
+              </tr>
+              <tr>
+                <td>26 May 09:05</td>
+                <td class="td-mono">CSV</td>
+                <td>Export Semana 21</td>
+                <td>760 KB</td>
+                <td class="td-ok">Listo</td>
+              </tr>
+              <tr>
+                <td>28 May 15:22</td>
+                <td class="td-mono">CSV</td>
+                <td>Alertas Mayo</td>
+                <td>—</td>
+                <td class="td-warn">Generando</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+    </main>
+
+    <footer class="site-footer" role="contentinfo">
+      <p>© 2026 AQUATECH · INFINITY-GRID — PROYECTO ACADÉMICO · SYS.OK · v2.4.1</p>
+      <div class="footer-right">
+        <span class="footer-dot"></span>
+        <span>SISTEMA OPERATIVO · LATENCIA 18 ms</span>
+      </div>
+    </footer>
+  </div>
+
+</div>
+</body>
+</html>
